@@ -128,7 +128,7 @@ const orgs = [
 const projects = [
   {
     name: 'PA Bill Tracker',
-    what: 'A real-time tracker monitoring Pennsylvania legislation on screen time, phone-free schools, and child digital wellbeing.',
+    what: 'Pennsylvania legislation on phone-free schools, social media safety, student privacy, and childhood independence — tracked daily.',
     who: 'Advocates, parents, and coalition members who need to stay current on relevant bills without monitoring LRS full-time.',
     url: 'https://bills.paunplugged.org/',
   },
