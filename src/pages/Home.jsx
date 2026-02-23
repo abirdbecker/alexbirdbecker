@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { press } from '../data/press.js';
+import ContactForm from '../components/ContactForm.jsx';
 
-const homeCss = `
-  /* Hero */
-  .home-hero {
-    padding: 8rem 0 6rem;
-    max-width: 760px;
+const css = `
+  /* ── Hero ── */
+  .lp-hero {
+    padding: 7rem 0 6rem;
+    max-width: 780px;
   }
 
-  .hero-headline {
+  .lp-hero h1 {
     font-size: var(--text-hero);
     font-weight: 800;
     color: var(--cream);
@@ -17,7 +18,7 @@ const homeCss = `
     margin-bottom: 1.5rem;
   }
 
-  .hero-sub {
+  .lp-hero p {
     font-style: italic;
     font-size: var(--text-lg);
     color: var(--cream-dim);
@@ -26,14 +27,66 @@ const homeCss = `
     max-width: 560px;
   }
 
-  .hero-ctas {
+  .lp-hero-ctas {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
   }
 
-  /* Pillars */
-  .pillars {
+  /* ── About ── */
+  .lp-about {
+    max-width: 620px;
+  }
+
+  .lp-about p {
+    font-size: var(--text-lg);
+    line-height: 1.75;
+  }
+
+  /* ── Work ── */
+  .lp-orgs {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 3rem;
+    border: 1px solid var(--navy-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .lp-org-row {
+    display: grid;
+    grid-template-columns: 180px 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.5rem 1.75rem;
+    background: var(--navy-mid);
+    border-bottom: 1px solid var(--navy-light);
+    transition: background var(--transition);
+  }
+
+  .lp-org-row:last-child {
+    border-bottom: none;
+  }
+
+  .lp-org-row:hover {
+    background: #1f3550;
+  }
+
+  .lp-org-name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--cream);
+  }
+
+  .lp-org-desc {
+    font-size: var(--text-sm);
+    color: var(--cream-dim);
+    line-height: 1.5;
+  }
+
+  .lp-projects {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1px;
@@ -42,61 +95,102 @@ const homeCss = `
     overflow: hidden;
   }
 
-  .pillar {
+  .lp-project-card {
     background: var(--navy-mid);
-    padding: 2rem 1.75rem;
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: background var(--transition);
   }
 
-  .pillar-num {
+  .lp-project-card:hover {
+    background: #1f3550;
+  }
+
+  .lp-project-card h3 {
+    font-size: 1rem;
+    color: var(--cream);
+  }
+
+  .lp-project-card p {
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    flex: 1;
+  }
+
+  .lp-project-link {
     font-family: var(--font-heading);
     font-size: var(--text-sm);
-    font-weight: 700;
+    font-weight: 600;
     color: var(--gold);
-    letter-spacing: 0.1em;
-    margin-bottom: 0.75rem;
-    display: block;
+    margin-top: 0.25rem;
   }
 
-  .pillar h3 {
-    font-size: 1.1rem;
+  /* ── Collaborate ── */
+  .lp-collab-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    border: 1px solid var(--navy-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 4rem;
+  }
+
+  .lp-collab-card {
+    background: var(--navy-mid);
+    padding: 1.75rem;
+  }
+
+  .lp-collab-card h3 {
+    font-size: 1rem;
     margin-bottom: 0.5rem;
   }
 
-  .pillar p {
+  .lp-collab-card p {
     font-size: var(--text-sm);
     line-height: 1.6;
   }
 
-  /* Community section */
-  .community-section {
-    padding: 6rem 0;
+  .lp-form-intro {
+    max-width: 480px;
+    margin-bottom: 2rem;
   }
 
-  .community-inner {
+  .lp-form-intro h2 {
+    font-size: var(--text-xl);
+    margin-bottom: 0.4rem;
+  }
+
+  .lp-form-intro p {
+    font-size: var(--text-sm);
+  }
+
+  /* ── Community ── */
+  .lp-community-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
     align-items: start;
   }
 
-  .community-copy h2 {
+  .lp-community-copy h2 {
     font-size: var(--text-xl);
     margin-bottom: 1.25rem;
   }
 
-  .community-copy p {
+  .lp-community-copy p {
     margin-bottom: 1rem;
     line-height: 1.75;
   }
 
-  .community-copy p:last-child {
-    margin-bottom: 0;
-  }
+  .lp-community-copy p:last-child { margin-bottom: 0; }
 
   .retreat-hint {
     margin-top: 2rem;
     padding: 1.5rem;
-    border: 1px solid var(--navy-light);
     border-left: 3px solid var(--gold);
     border-radius: 0 var(--radius) var(--radius) 0;
   }
@@ -108,7 +202,7 @@ const homeCss = `
     margin: 0;
   }
 
-  /* Subscribe */
+  /* ── Subscribe ── */
   .subscribe-box {
     background: var(--navy-mid);
     border: 1px solid var(--navy-light);
@@ -116,9 +210,7 @@ const homeCss = `
     padding: 2rem;
   }
 
-  .subscribe-box h3 {
-    margin-bottom: 0.4rem;
-  }
+  .subscribe-box h3 { margin-bottom: 0.4rem; }
 
   .subscribe-box > p {
     font-size: var(--text-sm);
@@ -155,7 +247,7 @@ const homeCss = `
   .subscribe-note.success { color: var(--gold); }
   .subscribe-note.error   { color: #e08080; }
 
-  /* Press */
+  /* ── Press ── */
   .press-row {
     display: flex;
     flex-wrap: wrap;
@@ -174,16 +266,57 @@ const homeCss = `
 
   .press-row a:hover { color: var(--cream); }
 
+  /* ── Responsive ── */
   @media (max-width: 860px) {
-    .pillars { grid-template-columns: 1fr; gap: 0; }
-    .community-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .lp-org-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    .lp-projects { grid-template-columns: 1fr 1fr; }
+    .lp-collab-grid { grid-template-columns: 1fr 1fr; }
+    .lp-community-inner { grid-template-columns: 1fr; gap: 3rem; }
   }
 
   @media (max-width: 560px) {
-    .home-hero { padding: 5rem 0 3.5rem; }
+    .lp-hero { padding: 5rem 0 3.5rem; }
+    .lp-projects { grid-template-columns: 1fr; }
+    .lp-collab-grid { grid-template-columns: 1fr; }
     .subscribe-row { flex-direction: column; }
   }
 `;
+
+const orgs = [
+  {
+    name: 'Delco Unplugged',
+    role: 'Founder',
+    desc: 'Delaware County\'s digital wellbeing advocacy group — events, school board organizing, and offline community.',
+    url: 'https://delcounplugged.org',
+  },
+  {
+    name: 'PA Unplugged',
+    role: 'Co-Leader',
+    desc: 'Statewide coalition pushing the Phone-Free Schools Act through the Pennsylvania legislature.',
+    url: 'https://paunplugged.org',
+  },
+  {
+    name: 'Screen Free Philly',
+    role: 'Co-Founder',
+    desc: 'Regional initiative organizing screen-free events and offline social experiences across the Philadelphia area.',
+    url: 'https://screenfreephilly.org',
+  },
+];
+
+const projects = [
+  { name: 'PA Bill Tracker', desc: 'Real-time tracking of Pennsylvania legislation on phones, screens, and child digital wellbeing.', url: 'https://bills.paunplugged.org/' },
+  { name: 'EdTech Advocacy Guide', desc: 'A personalized action guide helping PA parents understand and push back on school tech policy.', url: 'https://edtechguide.paunplugged.org/' },
+  { name: 'Parent EdTech Survey', desc: 'Statewide data collection on how schools use technology and how parents feel about it.', url: 'https://dashboard.paunplugged.org/' },
+];
+
+const collabs = [
+  { title: 'Co-host a gathering', desc: 'Collaborate on a screen-free event, community gathering, or offline social experience for parents, families, or any group that wants to disconnect together.' },
+  { title: 'Speaking', desc: 'I speak on digital wellbeing, phone-free schools, advocacy strategy, and building grassroots coalitions. Schools, conferences, parent nights, podcasts.' },
+  { title: 'Build a tool', desc: 'Need a bill tracker, action guide, survey dashboard, or coalition site? I build the digital infrastructure that turns organizing into action.' },
+  { title: 'Coaching on screens', desc: 'One-on-one or small group coaching for adults or kids navigating their relationship with technology — practical, research-informed, non-judgmental.' },
+  { title: 'Family tech agreements', desc: 'Help families develop their own norms around devices — not rules handed down, but something everyone actually buys into.' },
+  { title: 'Something else', desc: "If you're working on anything in this space and think there might be a fit, reach out. I'm open to conversations I haven't had yet." },
+];
 
 function SubscribeForm() {
   const [email, setEmail] = useState('');
@@ -235,7 +368,7 @@ export default function Home() {
   useEffect(() => {
     document.title = 'Alex Bird Becker';
     const style = document.createElement('style');
-    style.textContent = homeCss;
+    style.textContent = css;
     document.head.appendChild(style);
     return () => document.head.removeChild(style);
   }, []);
@@ -243,51 +376,17 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <div className="container">
-        <div className="home-hero">
-          <h1 className="hero-headline">
-            Building healthier childhoods, offline and on.
-          </h1>
-          <p className="hero-sub">
-            I work at the intersection of digital wellbeing, policy, and the kind of
-            in-person connection that screens can't replace.
-          </p>
-          <div className="hero-ctas">
-            <Link to="/work" className="btn btn-primary">See My Work</Link>
-            <Link to="/work-with-me" className="btn btn-outline">Work With Me</Link>
-          </div>
-        </div>
-      </div>
-
-      <hr className="divider" />
-
-      {/* Pillars */}
-      <section className="section">
+      <section id="hero">
         <div className="container">
-          <div className="pillars">
-            <div className="pillar">
-              <span className="pillar-num">01</span>
-              <h3>Advocacy & Policy</h3>
-              <p>
-                Co-leading PA Unplugged's statewide push for the Phone-Free Schools Act.
-                Organizing communities, coordinating with legislators, building the coalition.
-              </p>
-            </div>
-            <div className="pillar">
-              <span className="pillar-num">02</span>
-              <h3>Community & Gatherings</h3>
-              <p>
-                Hosting screen-free events, offline socials, and building spaces for
-                families to connect without devices. Retreats in the works.
-              </p>
-            </div>
-            <div className="pillar">
-              <span className="pillar-num">03</span>
-              <h3>Speaking & Consulting</h3>
-              <p>
-                Speaking on digital wellbeing and advocacy strategy. Building tools and
-                infrastructure for mission-aligned organizations.
-              </p>
+          <div className="lp-hero">
+            <h1>Building healthier childhoods, offline and on.</h1>
+            <p>
+              I work at the intersection of digital wellbeing, policy, and the kind of
+              in-person connection that screens can't replace.
+            </p>
+            <div className="lp-hero-ctas">
+              <a href="#work" className="btn btn-primary">See My Work</a>
+              <a href="#collaborate" className="btn btn-outline">Work With Me</a>
             </div>
           </div>
         </div>
@@ -295,11 +394,100 @@ export default function Home() {
 
       <hr className="divider" />
 
-      {/* Community */}
-      <section className="community-section">
+      {/* About */}
+      <section id="about" className="section">
         <div className="container">
-          <div className="community-inner">
-            <div className="community-copy">
+          <span className="section-label">About</span>
+          <div className="lp-about">
+            <p>
+              Delaware County, PA. Former teacher, trained researcher. Still asking questions.
+              I work on digital wellbeing — through policy, community, and the tools
+              that make organizing possible.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <hr className="divider" />
+
+      {/* Work */}
+      <section id="work" className="section">
+        <div className="container">
+          <span className="section-label">Work</span>
+          <h2 style={{ marginBottom: '2rem' }}>Organizations & tools</h2>
+
+          <div className="lp-orgs">
+            {orgs.map(org => (
+              <div className="lp-org-row" key={org.name}>
+                <span className="lp-org-name">{org.name}</span>
+                <span className="lp-org-desc">{org.desc}</span>
+                <a
+                  href={org.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-outline"
+                  style={{ whiteSpace: 'nowrap', fontSize: 'var(--text-sm)' }}
+                >
+                  Visit →
+                </a>
+              </div>
+            ))}
+          </div>
+
+          <div className="lp-projects">
+            {projects.map(p => (
+              <a
+                key={p.name}
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="lp-project-card"
+              >
+                <h3>{p.name}</h3>
+                <p>{p.desc}</p>
+                <span className="lp-project-link">View →</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <hr className="divider" />
+
+      {/* Collaborate */}
+      <section id="collaborate" className="section">
+        <div className="container">
+          <span className="section-label">Work With Me</span>
+          <h2 style={{ marginBottom: '0.75rem' }}>Let's work together.</h2>
+          <p style={{ maxWidth: '520px', marginBottom: '2.5rem' }}>
+            There are a lot of ways we could collaborate. A few examples — but if
+            something else comes to mind, I'd still love to hear from you.
+          </p>
+
+          <div className="lp-collab-grid">
+            {collabs.map(c => (
+              <div className="lp-collab-card" key={c.title}>
+                <h3>{c.title}</h3>
+                <p>{c.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="lp-form-intro">
+            <h2>Get in touch.</h2>
+            <p>Tell me what you're working on or what you have in mind.</p>
+          </div>
+          <ContactForm defaultType="" />
+        </div>
+      </section>
+
+      <hr className="divider" />
+
+      {/* Community */}
+      <section id="community" className="section">
+        <div className="container">
+          <div className="lp-community-inner">
+            <div className="lp-community-copy">
               <span className="section-label">Community</span>
               <h2>The antidote to screens is each other.</h2>
               <p>
@@ -308,15 +496,9 @@ export default function Home() {
               </p>
               <p>
                 Through Delco Unplugged and Screen Free Philly, I organize gatherings,
-                events, and offline social spaces for families across the Philadelphia
-                region. These aren't lectures about screen time. They're just good excuses
+                events, and offline social spaces across the Philadelphia region.
+                These aren't lectures about screen time. They're just good excuses
                 to be together without devices.
-              </p>
-              <p>
-                I'm experienced facilitating community experiences of all sizes — from
-                neighborhood parent nights to multi-organization events — and I'm available
-                to bring that to groups, schools, and organizations looking to build more
-                offline culture.
               </p>
               <div className="retreat-hint">
                 <p>

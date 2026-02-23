@@ -148,11 +148,12 @@ const navCss = `
   }
 `;
 
+// anchor: true = scroll to section on home page; route: true = separate page
 const links = [
-  { to: '/about', label: 'About' },
-  { to: '/work', label: 'Work' },
-  { to: '/blog', label: 'Blog' },
-  { to: '/work-with-me', label: 'Work With Me', cta: true },
+  { href: '/#about', label: 'About' },
+  { href: '/#work', label: 'Work' },
+  { href: '/blog', label: 'Blog', route: true },
+  { href: '/#collaborate', label: 'Work With Me', cta: true },
 ];
 
 export default function Nav() {
@@ -188,17 +189,25 @@ export default function Nav() {
           <span />
         </button>
         <ul className={`nav-links${open ? ' open' : ''}`}>
-          {links.map(({ to, label, cta }) => (
-            <li key={to}>
-              <NavLink
-                to={to}
-                className={({ isActive }) =>
-                  [isActive ? 'active' : '', cta ? 'nav-cta' : ''].join(' ').trim()
-                }
-                onClick={() => setOpen(false)}
-              >
-                {label}
-              </NavLink>
+          {links.map(({ href, label, cta, route }) => (
+            <li key={href}>
+              {route ? (
+                <NavLink
+                  to={href}
+                  className={({ isActive }) => isActive ? 'active' : ''}
+                  onClick={() => setOpen(false)}
+                >
+                  {label}
+                </NavLink>
+              ) : (
+                <a
+                  href={href}
+                  className={cta ? 'nav-cta' : ''}
+                  onClick={() => setOpen(false)}
+                >
+                  {label}
+                </a>
+              )}
             </li>
           ))}
         </ul>
