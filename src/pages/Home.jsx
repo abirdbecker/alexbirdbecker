@@ -379,7 +379,7 @@ export default function Home() {
       <section id="hero">
         <div className="container">
           <div className="lp-hero">
-            <h1>We didn't ask for any of this. Let's do something about it.</h1>
+            <h1>We didn't ask for this. Let's do something about it.</h1>
             <p>
               I work on digital wellbeing for people of all ages — through policy advocacy,
               community organizing, and the infrastructure that helps movements gain ground.
