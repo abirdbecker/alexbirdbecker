@@ -23,7 +23,7 @@ const navCss = `
     max-width: var(--max-w);
     margin: 0 auto;
     padding: 0 1.5rem;
-    height: 112px;
+    height: 152px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -37,7 +37,7 @@ const navCss = `
   }
 
   .nav-logo img {
-    height: 88px;
+    height: 132px;
     width: auto;
   }
 
@@ -110,7 +110,7 @@ const navCss = `
     .nav-links {
       display: none;
       position: absolute;
-      top: 112px;
+      top: 152px;
       left: 0;
       right: 0;
       background: var(--navy-mid);
@@ -144,7 +144,7 @@ const navCss = `
   /* Push page content below fixed nav */
   #root > div:first-of-type,
   main {
-    padding-top: 112px;
+    padding-top: 152px;
   }
 `;
 
