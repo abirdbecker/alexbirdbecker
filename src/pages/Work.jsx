@@ -130,19 +130,19 @@ const projects = [
     name: 'PA Bill Tracker',
     what: 'A real-time tracker monitoring Pennsylvania legislation on screen time, phone-free schools, and child digital wellbeing.',
     who: 'Advocates, parents, and coalition members who need to stay current on relevant bills without monitoring LRS full-time.',
-    url: 'https://paunplugged.org',
+    url: 'https://bills.paunplugged.org/',
   },
   {
     name: 'EdTech Advocacy Dashboard',
     what: 'A personalized action guide that walks PA parents through their school\'s technology policy and generates a specific action plan.',
     who: 'Parents and school-level advocates who want to start conversations with teachers, principals, and school boards.',
-    url: 'https://paunplugged.org/ed-tech-guide',
+    url: 'https://edtechguide.paunplugged.org/',
   },
   {
     name: 'Parent EdTech Survey',
     what: 'A statewide data collection tool giving PA Unplugged real evidence on how schools use technology — and how parents feel about it.',
     who: 'The coalition, for legislative testimony, media, and building the case for policy change.',
-    url: 'https://paunplugged.org/ed-tech-survey',
+    url: 'https://dashboard.paunplugged.org/',
   },
 ];
 
