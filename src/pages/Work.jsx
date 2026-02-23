@@ -121,7 +121,7 @@ const orgs = [
     name: 'Screen Free Philly',
     role: 'Co-Founder',
     url: 'https://screenfreephilly.org',
-    desc: 'A regional initiative promoting offline connection across the greater Philadelphia area. Screen Free Philly organizes digital detox events, phone-free social gatherings, and community conversations about what meaningful offline life looks like for families.',
+    desc: 'A hub for screen-free events across the Philadelphia region — organizing, promoting, and connecting people to offline experiences worth showing up for.',
   },
 ];
 
