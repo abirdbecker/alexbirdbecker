@@ -173,7 +173,7 @@ export default function About() {
           <p style={{ maxWidth: '440px', margin: '0 auto 1.5rem' }}>
             Speaking, consulting, or community collaboration — I'd love to hear what you're building.
           </p>
-          <Link to="/speaking" className="btn btn-primary">Get in touch</Link>
+          <Link to="/work-with-me" className="btn btn-primary">Get in touch</Link>
         </div>
       </section>
     </main>

@@ -114,7 +114,7 @@ export default function Footer() {
           <Link to="/about">About</Link>
           <Link to="/work">Work</Link>
           <Link to="/blog">Blog</Link>
-          <Link to="/speaking">Work With Me</Link>
+          <Link to="/work-with-me">Work With Me</Link>
         </nav>
         <div className="footer-external">
           <a href="https://delcounplugged.org" target="_blank" rel="noopener noreferrer">Delco Unplugged</a>

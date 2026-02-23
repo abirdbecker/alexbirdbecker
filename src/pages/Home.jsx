@@ -254,7 +254,7 @@ export default function Home() {
           </p>
           <div className="hero-ctas">
             <Link to="/work" className="btn btn-primary">See My Work</Link>
-            <Link to="/speaking" className="btn btn-outline">Work With Me</Link>
+            <Link to="/work-with-me" className="btn btn-outline">Work With Me</Link>
           </div>
         </div>
       </div>

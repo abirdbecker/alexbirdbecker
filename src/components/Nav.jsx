@@ -152,7 +152,7 @@ const links = [
   { to: '/about', label: 'About' },
   { to: '/work', label: 'Work' },
   { to: '/blog', label: 'Blog' },
-  { to: '/speaking', label: 'Work With Me', cta: true },
+  { to: '/work-with-me', label: 'Work With Me', cta: true },
 ];
 
 export default function Nav() {
