@@ -126,9 +126,10 @@ export default function About() {
         <div className="container">
           <div className="about-bio">
             <p>
-              Greater Philadelphia. Former teacher, current researcher. Public servant.
-              I work on digital wellbeing for people of all ages — through policy advocacy,
-              community organizing, and building the infrastructure that helps movements succeed.
+              Alex lives in Delaware County, PA with her family. Former teacher, current
+              researcher and public servant. She is passionate about civics, culture, and
+              language. She believes in what becomes possible when people act in service of
+              something larger than themselves. We could all use more community. She's working on it.
             </p>
           </div>
         </div>
