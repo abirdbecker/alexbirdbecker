@@ -152,7 +152,7 @@ const navCss = `
 const links = [
   { href: '/#about', label: 'About' },
   { href: '/#work', label: 'Work' },
-  { href: '/blog', label: 'Blog', route: true },
+  { href: '/writing', label: 'Writing', route: true },
   { href: '/#collaborate', label: 'Work With Me', cta: true },
 ];
 

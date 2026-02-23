@@ -19,8 +19,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/work" element={<Work />} />
         <Route path="/work-with-me" element={<Speaking />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/writing" element={<Blog />} />
+        <Route path="/writing/:slug" element={<BlogPost />} />
       </Routes>
       <Footer />
     </BrowserRouter>

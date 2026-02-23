@@ -93,7 +93,7 @@ export default function BlogPost() {
         <div className="blog-not-found container">
           <h2>Post not found.</h2>
           <p style={{ marginBottom: '1.5rem' }}>That post doesn't exist or may have moved.</p>
-          <Link to="/blog" className="btn btn-outline">← Back to Blog</Link>
+          <Link to="/writing" className="btn btn-outline">← Back to Writing</Link>
         </div>
       </main>
     );
@@ -104,7 +104,7 @@ export default function BlogPost() {
   return (
     <main>
       <div className="blog-post-layout">
-        <Link to="/blog" className="blog-post-back">← All posts</Link>
+        <Link to="/writing" className="blog-post-back">← All writing</Link>
         <header className="blog-post-header">
           <h1>{post.title}</h1>
           <p className="blog-post-date">{formatDate(post.date)}</p>

@@ -81,7 +81,7 @@ function formatDate(dateStr) {
 
 export default function Blog() {
   useEffect(() => {
-    document.title = 'Blog — Alex Bird Becker';
+    document.title = 'Writing — Alex Bird Becker';
     const style = document.createElement('style');
     style.textContent = blogCss;
     document.head.appendChild(style);
@@ -91,7 +91,7 @@ export default function Blog() {
   return (
     <main>
       <div className="page-header container">
-        <span className="section-label">Blog</span>
+        <span className="section-label">Writing</span>
         <h1>Writing</h1>
       </div>
 
@@ -101,7 +101,7 @@ export default function Blog() {
         <div className="container">
           {posts.length === 0 ? (
             <div className="blog-empty">
-              <h2>Essays coming soon.</h2>
+              <h2>Writing coming soon.</h2>
               <p>
                 I'm working on writing about digital wellbeing, advocacy strategy, and what
                 it takes to build community in the age of the smartphone.
@@ -116,7 +116,7 @@ export default function Blog() {
                   <article className="blog-post-card" key={post.slug}>
                     <p className="blog-post-meta">{formatDate(post.date)}</p>
                     <h2>
-                      <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+                      <Link to={`/writing/${post.slug}`}>{post.title}</Link>
                     </h2>
                     <p className="excerpt">{post.excerpt}</p>
                   </article>

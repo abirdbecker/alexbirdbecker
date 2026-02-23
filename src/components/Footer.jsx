@@ -113,7 +113,7 @@ export default function Footer() {
         <nav className="footer-nav">
           <Link to="/about">About</Link>
           <Link to="/work">Work</Link>
-          <Link to="/blog">Blog</Link>
+          <Link to="/writing">Writing</Link>
           <Link to="/work-with-me">Work With Me</Link>
         </nav>
         <div className="footer-external">
