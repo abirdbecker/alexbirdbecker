@@ -288,7 +288,7 @@ const orgs = [
   {
     name: 'Delco Unplugged',
     role: 'Founder',
-    desc: "Delaware County's hub for digital wellbeing — events, school board organizing, and offline community.",
+    desc: "Delaware County's hub for digital wellbeing — collective action, events, resources, and more.",
     url: 'https://delcounplugged.org',
   },
   {
