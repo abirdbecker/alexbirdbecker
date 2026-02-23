@@ -1,128 +1,94 @@
 import { useEffect } from 'react';
 import ContactForm from '../components/ContactForm.jsx';
 
-const speakingCss = `
-  .speaking-layout {
+const css = `
+  .work-with-me-intro {
+    max-width: 560px;
+    margin-bottom: 3.5rem;
+  }
+
+  .work-with-me-intro p {
+    font-size: var(--text-lg);
+    font-style: italic;
+    line-height: 1.65;
+  }
+
+  .collab-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    border: 1px solid var(--navy-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 4rem;
   }
 
-  .topics-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 1.25rem;
+  .collab-card {
+    background: var(--navy-mid);
+    padding: 1.75rem;
   }
 
-  .topics-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--navy-light);
-    font-size: var(--text-sm);
-    color: var(--cream-dim);
-    line-height: 1.5;
-  }
-
-  .topics-list li:last-child {
-    border-bottom: none;
-  }
-
-  .topic-dot {
-    width: 6px;
-    height: 6px;
-    min-width: 6px;
-    border-radius: 50%;
-    background: var(--gold);
-    margin-top: 0.45rem;
-  }
-
-  .formats-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-
-  .format-chip {
-    background: var(--navy-light);
-    color: var(--cream-dim);
-    font-family: var(--font-heading);
-    font-size: var(--text-sm);
-    font-weight: 500;
-    padding: 0.35rem 0.85rem;
-    border-radius: 100px;
-  }
-
-  .consulting-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-top: 1rem;
-  }
-
-  .consulting-list li {
-    padding: 0.85rem 0;
-    border-bottom: 1px solid var(--navy-light);
-    font-size: var(--text-sm);
-    color: var(--cream-dim);
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-
-  .consulting-list li:last-child {
-    border-bottom: none;
-  }
-
-  .section-block {
-    margin-bottom: 3rem;
-  }
-
-  .section-block h3 {
+  .collab-card h3 {
+    font-size: 1rem;
     margin-bottom: 0.5rem;
   }
 
-  .section-block p {
+  .collab-card p {
     font-size: var(--text-sm);
     line-height: 1.6;
   }
 
+  .work-form-section h2 {
+    font-size: var(--text-xl);
+    margin-bottom: 0.5rem;
+  }
+
+  .work-form-section > p {
+    font-size: var(--text-sm);
+    margin-bottom: 2rem;
+  }
+
   @media (max-width: 860px) {
-    .speaking-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .collab-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 540px) {
+    .collab-grid { grid-template-columns: 1fr; }
   }
 `;
 
-const topics = [
-  'Phone-free schools: the case, the policy, and the pushback',
-  'How parents can organize at the local level — and win',
-  'Tech in the classroom: what the research says and what parents can do',
-  'Building coalitions across communities: lessons from PA Unplugged',
-  'Advocacy infrastructure: how digital tools help grassroots groups scale',
-  'Digital wellbeing for families: beyond screen time limits',
-];
-
-const formats = ['Keynote', 'Panel', 'Workshop', 'Podcast', 'Fireside chat', 'Parent night'];
-
-const buildServices = [
-  'Legislative bill trackers',
-  'Parent action guides and personalized dashboards',
-  'Community survey tools and data collection',
-  'Coalition websites and action hubs',
-  'Email list building and outreach infrastructure',
-  'Resource libraries and advocacy toolkits',
+const ways = [
+  {
+    title: 'Co-host a gathering',
+    desc: 'Collaborate on a screen-free event, community gathering, or offline social experience — for parents, families, or any group that wants to disconnect together.',
+  },
+  {
+    title: 'Speaking',
+    desc: 'I speak on digital wellbeing, phone-free schools, advocacy strategy, and building grassroots coalitions. Schools, conferences, parent nights, podcasts.',
+  },
+  {
+    title: 'Build a tool',
+    desc: 'Need a bill tracker, action guide, survey dashboard, or coalition site? I build the digital infrastructure that turns organizing into action.',
+  },
+  {
+    title: 'Coaching on screens',
+    desc: 'One-on-one or small group coaching for adults or kids navigating their relationship with technology — practical, research-informed, non-judgmental.',
+  },
+  {
+    title: 'Family tech agreements',
+    desc: 'Help families develop their own norms and agreements around devices — not rules handed down, but something everyone actually buys into.',
+  },
+  {
+    title: 'Something else',
+    desc: "If you're working on anything in this space and think there might be a fit, reach out. I'm open to conversations I haven't had yet.",
+  },
 ];
 
 export default function Speaking() {
   useEffect(() => {
-    document.title = 'Speaking & Consulting — Alex Bird Becker';
+    document.title = 'Work With Me — Alex Bird Becker';
     const style = document.createElement('style');
-    style.textContent = speakingCss;
+    style.textContent = css;
     document.head.appendChild(style);
     return () => document.head.removeChild(style);
   }, []);
@@ -130,77 +96,34 @@ export default function Speaking() {
   return (
     <main>
       <div className="page-header container">
-        <span className="section-label">Speaking & Consulting</span>
-        <h1>Bring Alex to your event.</h1>
+        <span className="section-label">Work With Me</span>
+        <h1>Let's work together.</h1>
       </div>
 
       <hr className="divider" />
 
       <section className="section">
         <div className="container">
-          <div className="speaking-layout">
-            <div>
-              {/* Speaking */}
-              <div className="section-block">
-                <span className="section-label">Speaking</span>
-                <h3>Topics</h3>
-                <ul className="topics-list">
-                  {topics.map(t => (
-                    <li key={t}>
-                      <span className="topic-dot" />
-                      {t}
-                    </li>
-                  ))}
-                </ul>
+          <div className="work-with-me-intro">
+            <p>
+              There are a lot of ways we could collaborate. A few examples below —
+              but if something else comes to mind, I'd still love to hear from you.
+            </p>
+          </div>
+
+          <div className="collab-grid">
+            {ways.map(w => (
+              <div className="collab-card" key={w.title}>
+                <h3>{w.title}</h3>
+                <p>{w.desc}</p>
               </div>
+            ))}
+          </div>
 
-              <div className="section-block">
-                <h3>Formats</h3>
-                <div className="formats-row">
-                  {formats.map(f => (
-                    <span className="format-chip" key={f}>{f}</span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="section-block">
-                <h3>Past engagements</h3>
-                <p style={{ color: 'var(--cream-muted)', fontStyle: 'italic' }}>
-                  Community forums, school board meetings, state advocacy days, and parent
-                  education events across Pennsylvania and the greater Philadelphia region.
-                  Booking details available on request.
-                </p>
-              </div>
-
-              {/* Consulting */}
-              <hr className="divider" style={{ margin: '2.5rem 0' }} />
-
-              <div className="section-block">
-                <span className="section-label">Consulting & Build</span>
-                <h3>I build advocacy tools for mission-aligned organizations.</h3>
-                <p style={{ marginTop: '0.75rem', marginBottom: '0' }}>
-                  Parent groups, coalitions, and nonprofits often have more energy than
-                  infrastructure. I build the digital scaffolding that turns organizing into
-                  measurable action — and helps you tell that story to funders, legislators,
-                  and the press.
-                </p>
-                <ul className="consulting-list">
-                  {buildServices.map(s => (
-                    <li key={s}>
-                      <span className="topic-dot" style={{ marginTop: '0.45rem' }} />
-                      {s}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Contact Form */}
-            <div>
-              <span className="section-label" style={{ marginBottom: '1rem', display: 'block' }}>Get in touch</span>
-              <h3 style={{ marginBottom: '1.5rem' }}>Tell me about your project or event</h3>
-              <ContactForm defaultType="" />
-            </div>
+          <div className="work-form-section">
+            <h2>Get in touch.</h2>
+            <p>Tell me what you're working on or what you have in mind.</p>
+            <ContactForm defaultType="" />
           </div>
         </div>
       </section>
