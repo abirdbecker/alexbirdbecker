@@ -11,11 +11,13 @@ const css = `
   }
 
   .lp-hero h1 {
-    font-size: var(--text-hero);
-    font-weight: 800;
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    font-weight: 500;
     color: var(--cream);
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
+    line-height: 1.35;
+    margin-bottom: 2.5rem;
+    max-width: 680px;
   }
 
   .lp-hero p {
@@ -379,10 +381,10 @@ export default function Home() {
       <section id="hero">
         <div className="container">
           <div className="lp-hero">
-            <p>
+            <h1>
               I work on digital wellbeing for people of all ages — through policy advocacy,
               community organizing, and the infrastructure that helps movements gain ground.
-            </p>
+            </h1>
             <div className="lp-hero-ctas">
               <a href="#work" className="btn btn-primary">See My Work</a>
               <a href="#collaborate" className="btn btn-outline">Work With Me</a>
