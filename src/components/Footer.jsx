@@ -108,7 +108,7 @@ export default function Footer() {
       <div className="footer-inner">
         <div className="footer-brand">
           <p>Alex Bird Becker</p>
-          <span>Delaware County, PA</span>
+          <span>Greater Philadelphia</span>
         </div>
         <nav className="footer-nav">
           <Link to="/about">About</Link>
@@ -124,7 +124,7 @@ export default function Footer() {
       </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Alex Bird Becker</span>
-        <span>Delaware County, PA</span>
+        <span>Greater Philadelphia</span>
       </div>
     </footer>
   );

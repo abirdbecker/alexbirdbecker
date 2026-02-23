@@ -126,9 +126,9 @@ export default function About() {
         <div className="container">
           <div className="about-bio">
             <p>
-              Delaware County, PA. Former teacher, trained researcher. Still asking questions.
-              I work on digital wellbeing — through policy, community, and the tools
-              that make organizing possible.
+              Greater Philadelphia. Former teacher, current researcher. Public servant.
+              I work on digital wellbeing for people of all ages — through policy advocacy,
+              community organizing, and building the infrastructure that helps movements succeed.
             </p>
           </div>
         </div>

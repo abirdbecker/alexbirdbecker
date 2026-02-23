@@ -400,9 +400,9 @@ export default function Home() {
           <span className="section-label">About</span>
           <div className="lp-about">
             <p>
-              Delaware County, PA. Former teacher, trained researcher. Still asking questions.
-              I work on digital wellbeing — through policy, community, and the tools
-              that make organizing possible.
+              Greater Philadelphia. Former teacher, current researcher. Public servant.
+              I work on digital wellbeing for people of all ages — through policy advocacy,
+              community organizing, and building the infrastructure that helps movements succeed.
             </p>
           </div>
         </div>
