@@ -288,7 +288,7 @@ const orgs = [
   {
     name: 'Delco Unplugged',
     role: 'Founder',
-    desc: "Delaware County's hub for digital wellbeing — events, resources, and more.",
+    desc: "Delaware County's hub for digital wellbeing — events, school board organizing, and offline community.",
     url: 'https://delcounplugged.org',
   },
   {
@@ -301,6 +301,7 @@ const orgs = [
     name: 'Screen Free Philly',
     role: 'Co-Founder',
     desc: 'A hub for screen-free events across the Philadelphia region — organizing, promoting, and connecting people to offline experiences worth showing up for.',
+
     url: 'https://screenfreephilly.com',
   },
 ];

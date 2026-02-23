@@ -109,7 +109,7 @@ const orgs = [
     name: 'Delco Unplugged',
     role: 'Founder & Lead Organizer',
     url: 'https://delcounplugged.org',
-    desc: "Delaware County's hub for digital wellbeing — events, resources, and more.",
+    desc: "Delaware County's hub for digital wellbeing — events, school board organizing, and offline community.",
   },
   {
     name: 'PA Unplugged',
