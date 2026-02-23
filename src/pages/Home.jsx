@@ -383,7 +383,7 @@ export default function Home() {
           <div className="lp-hero">
             <h1>
               I work on digital wellbeing for people of all ages — through policy advocacy,
-              coalition building, and tools that turn organizing into action.
+              coalition building, screen-free experiences, and movement infrastructure.
             </h1>
             <div className="lp-hero-ctas">
               <a href="#work" className="btn btn-primary">See My Work</a>
